@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <atomic>
 #include <cmath>
 #include <execution>
 #include <functional>
@@ -71,6 +72,8 @@ int main()
 
   int N = 1000000;
   int numItems = 1000000;
+  std::atomic<int> a = 0;
+  int b = 0;
   std::vector<int> vec(N);
   std::iota(vec.begin(), vec.end(), 0);
 
@@ -78,6 +81,19 @@ int main()
                 [&](auto v) {
                   auto [a1, a2] = pairwiseIndex(v);
                   int f = calculateDistance(vec[a1], vec[a2]);
+                  calculateDistance(a1, a2);
+                  calculateDistance(a1, a2);
+                  calculateDistance(a1, a2);
+                  calculateDistance(a1, a2);
+                  calculateDistance(a1, a2);
+                  calculateDistance(a1, a2);
+                  calculateDistance(a1, a2);
+                  calculateDistance(a1, a2);
+                  calculateDistance(a1, a2);
+                  a++;
+                  b++;
                 });
+  std::cout << "a is" << a << std::endl;
+  std::cout << "b is" << b << std::endl;
   return 0;
 }
